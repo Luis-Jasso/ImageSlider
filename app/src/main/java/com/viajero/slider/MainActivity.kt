@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         addDotsLayout()
         setIndicator(0)
 
-        viewPagerSlider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        viewPagerSlider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setIndicator(position)
@@ -49,21 +49,20 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-
     }
 
-    private fun setIndicator(position:Int) {
+    private fun setIndicator(index: Int) {
         val childCount = layoutDots.childCount
-        for (i in 0 until childCount){
+        for (i in 0 until childCount) {
             val imageView = layoutDots[i] as ImageView
-            if (i == position){
+            if (i == index) {
                 imageView.setImageDrawable(
                     ContextCompat.getDrawable(
                         applicationContext,
                         R.drawable.select_dot
                     )
                 )
-            }else{
+            } else {
                 imageView.setImageDrawable(
                     ContextCompat.getDrawable(
                         applicationContext,
@@ -82,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         )
         layoutParams.setMargins(8, 8, 8, 0)
 
-        for (i in indicator.indices){
+        for (i in indicator.indices) {
             indicator[i] = ImageView(applicationContext)
             indicator[i].apply {
                 this?.setImageDrawable(
